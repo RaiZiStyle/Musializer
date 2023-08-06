@@ -7,6 +7,12 @@
       "request": "launch",
       "preLaunchTask": "Build Via .sh (Not all Warning)",
       "args": [],
+      "environment": [
+        {
+          "name": "DISPLAY",
+          "value": "localhost:10.0"
+        }
+      ],
       "stopAtEntry": false,
       "externalConsole": false,
       // "cwd": "/mnt/c/Users/arthu/Documents/01.DEV/01.C/01.PROJET/Olive.c",
@@ -15,6 +21,7 @@
       "program": "${workspaceFolder}/musializer",
       "MIMode": "gdb",
       "miDebuggerPath": "gdb",
+      
       "setupCommands": [
         {
           "description": "Enable pretty-printing for gdb",
