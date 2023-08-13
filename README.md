@@ -13,7 +13,7 @@ References :
 - Raylib
 - Veritasium Video on FFT https://www.youtube.com/watch?v=nmgFG7PUHfo&ab_channel=Veritasium
 
-__Current Timestamps video :__ https://youtu.be/Xdbk1Pr5WXU?t=5268
+__Current Timestamps video :__ https://youtu.be/Xdbk1Pr5WXU?t=6474
 
 # How it work : 
 
