@@ -9,7 +9,13 @@
 
 #define ARRAY_LEN(xs) sizeof(xs) / sizeof(xs[0])
 
-uint32_t global_frames[4410] = {};  // Contain 2 channels
+
+typedef struct {
+    float left;
+    float right;
+} Frame;
+
+Frame global_frames[4410*2] = {};  // Contain 2 channels
 size_t global_frames_count = 0;
 
 // Used to take the current sound wave (or frames, or sample) and copy it to global_frames.
@@ -18,14 +24,14 @@ void callback(void *bufferData, unsigned int frames) {
     size_t capacity = ARRAY_LEN(global_frames);
     // Used to do kinda a Ring buffer
     if (frames <= capacity - global_frames_count) {
-        memcpy(global_frames + global_frames_count, bufferData, sizeof(uint32_t) * frames);
+        memcpy(global_frames + global_frames_count, bufferData, sizeof(Frame) * frames);
         global_frames_count += frames;
         // Shifting doing here.
     } else if (frames <= capacity) {
-        memmove(global_frames, global_frames +  frames, sizeof(uint32_t) * (capacity - frames));
-        memcpy(global_frames + (capacity - frames), bufferData, sizeof(uint32_t) * frames);
+        memmove(global_frames, global_frames + frames, sizeof(Frame) * (capacity - frames));
+        memcpy(global_frames + (capacity - frames), bufferData, sizeof(Frame) * frames);
     } else {
-        memcpy(global_frames, bufferData, sizeof(uint32_t) * capacity);
+        memcpy(global_frames, bufferData, sizeof(Frame) * capacity);
         global_frames_count = capacity;
     }
 }
@@ -35,8 +41,9 @@ int main() {
     SetTargetFPS(60);
 
     InitAudioDevice();
-    Music music = LoadMusicStream("file_example.ogg");
+    // Music music = LoadMusicStream("file_example.ogg");
     // Music music = LoadMusicStream("Example.ogg");
+    Music music = LoadMusicStream("1vs0_JuniorGroove.ogg");
 
     assert(music.stream.sampleSize == 16);
     assert(music.stream.channels == 2);
@@ -71,21 +78,23 @@ int main() {
         float cell_width = (float)w / global_frames_count;  // Get cell Width based on global_frames
         for (size_t i = 0; i < global_frames_count; i++) {
             // Size global_frames is 32bits, this will take either one of the channel and take a sample
-            int16_t sample = *(int16_t *)&global_frames[i];
+            // int16_t sample = *(int16_t *)&global_frames[i];
+            float t = global_frames[i].left;    
+
             // The normalizeation. We need to map the value of the sample based on the sreens.
             // Drawing Positif sample
-            if (sample > 0) {
-                float t = (float)sample / INT16_MAX;
+            if (t > 0) {
+                // float t = (float)sample / INT16_MAX;  // Round value between 0 and 1
                 DrawRectangle(i * cell_width, h / 2 - h / 2 * t, 1, h / 2 * t, RED);
                 // Drawing Negatif sample
             } else {
-                float t = (float)sample / INT16_MIN;
+                // float t = (float)sample / INT16_MIN;
                 DrawRectangle(i * cell_width, h / 2, 1, h / 2 * t, RED);
             }
-            // printf("%d ", sample);
+            printf("s : %f\t", t );
         }
-        // printf("\n");
-        // if (global_frames_count > 0 ) exit(1);
+        printf("\n");
+
 
         EndDrawing();
     }
