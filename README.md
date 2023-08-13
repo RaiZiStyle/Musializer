@@ -27,7 +27,7 @@ Example of the string :
 ^---^---^---^   
 L---R---L---R   
 
-L: Left chanel
+L: Left chanel   
 R : Right Chanel
 
 ## Code structure : 
@@ -42,4 +42,4 @@ R : Right Chanel
 
 __VScode Settings__ : 
 - [x] Set X11 Variable in the launch to get the windows.
-- [ ] Set Debugger work with X11
+- [x] Set Debugger work with X11
