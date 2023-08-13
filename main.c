@@ -22,7 +22,7 @@ void callback(void *bufferData, unsigned int frames) {
         global_frames_count += frames;
         // Shifting doing here.
     } else if (frames <= capacity) {
-        memmove(global_frames, bufferData +  frames, sizeof(uint32_t) * (capacity - frames));
+        memmove(global_frames, global_frames +  frames, sizeof(uint32_t) * (capacity - frames));
         memcpy(global_frames + (capacity - frames), bufferData, sizeof(uint32_t) * frames);
     } else {
         memcpy(global_frames, bufferData, sizeof(uint32_t) * capacity);
