@@ -35,6 +35,7 @@ R : Right Chanel
 `fft.c` : An example on how to implement FFT. Cf Vertasium Video   
 `build.sh` : Script to build with or without the debug info for `musializer`   
 `*.ogg` : Sample of soung found on the internet.   
+`.vscode/` : Folder for Vscode to launch the `build.sh` and debug the ELF
 
 
 ## Todo : 
