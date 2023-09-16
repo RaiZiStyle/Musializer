@@ -12,7 +12,8 @@
 References : 
 - Music : https://www.youtube.com/@nu11_ft
 - Raylib
-- Veritasium Video on FFT https://www.youtube.com/watch?v=nmgFG7PUHfo&ab_channel=Veritasium
+- Veritasium Video on FFT: https://www.youtube.com/watch?v=nmgFG7PUHfo&ab_channel=Veritasium
+- Euler's Formula: https://en.wikipedia.org/wiki/Euler%27s_formula
 
 __Current Timestamps video :__ https://youtu.be/Xdbk1Pr5WXU?t=6474
 

@@ -43,7 +43,11 @@ int main() {
     InitAudioDevice();
     // Music music = LoadMusicStream("file_example.ogg");
     // Music music = LoadMusicStream("Example.ogg");
-    Music music = LoadMusicStream("1vs0_JuniorGroove.ogg");
+    Music music = LoadMusicStream("sounds/1vs0_JuniorGroove.ogg");
+    if (!IsAudioStreamReady(music.stream)){
+        printf("[ERROR] in loading sound\n");
+        exit(1);
+    }
 
     assert(music.stream.sampleSize == 16);
     assert(music.stream.channels == 2);
