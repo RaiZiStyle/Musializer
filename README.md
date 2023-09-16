@@ -4,6 +4,7 @@
 - [How it work :](#how-it-work-)
   - [Code structure :](#code-structure-)
   - [Todo :](#todo-)
+  - [Issues :](#issues-)
 
 
 # Musializer from [Tsoding Daily](https://www.youtube.com/watch?v=Xdbk1Pr5WXU&list=PLpM-Dvs8t0Vak1rrE2NJn8XYEJ5M7-BqT&ab_channel=TsodingDaily)
@@ -43,3 +44,8 @@ R : Right Chanel
 __VScode Settings__ : 
 - [x] Set X11 Variable in the launch to get the windows.
 - [x] Set Debugger work with X11
+
+
+## Issues : 
+
+- I think the visualization is not correct because of to much 
