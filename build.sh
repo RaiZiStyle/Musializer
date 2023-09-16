@@ -34,4 +34,4 @@ CFLAGS="-Wall -Wextra  `pkg-config --cflags raylib`"
 LIBS="`pkg-config --libs raylib` -lglfw -lm -ldl -lpthread -ldl -lrt -lX11 -DPLATEFORM_DESKTOP" 
 
 
-gcc $CFLAGS -o musializer main.c  "${dynamic_option[@]}" $LIBS
+gcc $CFLAGS -o bin/musializer src/main.c  "${dynamic_option[@]}" $LIBS
